@@ -2,6 +2,9 @@ package com.project.fitness.model;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.NoArgsConstructor;
 
 import java.time.LocalDateTime;
 import java.util.ArrayList;
@@ -9,6 +12,9 @@ import java.util.List;
 
 @Entity
 @Table(name = "users")
+@Data // These Are the Lombok Annotations That Are Used Instead Of Getters and Setters And Constructor
+@NoArgsConstructor
+@AllArgsConstructor
 public class User {
 
     @Id
@@ -25,5 +31,9 @@ public class User {
     @OneToMany(mappedBy = "user", cascade = CascadeType.ALL,orphanRemoval = true)
     @JsonIgnore
     private List<Activity> activities = new ArrayList<>();
+
+    @OneToMany(mappedBy = "user", cascade = CascadeType.ALL,orphanRemoval = true)
+    @JsonIgnore
+    private List<Recommendation> recommendation = new ArrayList<>();
 
 }
