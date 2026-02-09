@@ -14,7 +14,6 @@ import java.util.List;
 @Table(name = "users")
 @Data // These Are the Lombok Annotations That Are Used Instead Of Getters and Setters And Constructor
 @NoArgsConstructor
-@AllArgsConstructor
 public class User {
 
     @Id
@@ -36,4 +35,14 @@ public class User {
     @JsonIgnore
     private List<Recommendation> recommendation = new ArrayList<>();
 
+    public User(String email, String password, String firstName, String lastName, LocalDateTime createdAt, LocalDateTime updatedAt, List<Activity> activities, List<Recommendation> recommendation) {
+        this.email = email;
+        this.password = password;
+        this.firstName = firstName;
+        this.lastName = lastName;
+        this.createdAt = createdAt;
+        this.updatedAt = updatedAt;
+        this.activities = activities;
+        this.recommendation = recommendation;
+    }
 }
