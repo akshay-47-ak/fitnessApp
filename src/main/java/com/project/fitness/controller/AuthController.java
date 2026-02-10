@@ -1,6 +1,7 @@
 package com.project.fitness.controller;
 
 import com.project.fitness.dto.RegisterRequest;
+import com.project.fitness.dto.UserResponse;
 import com.project.fitness.model.User;
 import com.project.fitness.service.UserService;
 import lombok.RequiredArgsConstructor;
@@ -23,9 +24,9 @@ public class AuthController {
 
 
     @PostMapping("/register")
-    public ResponseEntity<User> registerUser(@RequestBody RegisterRequest registerRequest){
+    public ResponseEntity<UserResponse> registerUser(@RequestBody RegisterRequest registerRequest){
 
-        User user1 = userService.register(registerRequest);
+        UserResponse user1 = userService.register(registerRequest);
 
         return new ResponseEntity<>(user1, HttpStatus.CREATED);
     }

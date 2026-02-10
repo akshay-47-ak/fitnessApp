@@ -1,6 +1,7 @@
 package com.project.fitness.service;
 
 import com.project.fitness.dto.RegisterRequest;
+import com.project.fitness.dto.UserResponse;
 import com.project.fitness.model.User;
 import com.project.fitness.repository.UserRepository;
 import lombok.RequiredArgsConstructor;
@@ -16,7 +17,7 @@ public class UserService {
 
     private final UserRepository userRepository;
 
-    public User register(RegisterRequest registerRequest) {
+    public UserResponse register(RegisterRequest registerRequest) {
         User user  = new User(
                 registerRequest.getEmail(),
                 registerRequest.getPassword(),
@@ -28,6 +29,22 @@ public class UserService {
                 List.of()
         );
 
-      return   userRepository.save(user);
+        User savedUser = userRepository.save(user);
+
+      return  mapToUserResponse(savedUser);
+    }
+
+    private UserResponse mapToUserResponse(User savedUser) {
+          UserResponse userResponse = new UserResponse();
+
+          userResponse.setId(savedUser.getId());
+          userResponse.setEmail(savedUser.getEmail());
+          userResponse.setPassword(savedUser.getPassword());
+          userResponse.setFirstName(savedUser.getFirstName());
+          userResponse.setLastName(savedUser.getLastName());
+          userResponse.setCreatedAt(savedUser.getCreatedAt());
+          userResponse.setUpdatedAt(savedUser.getUpdatedAt());
+
+    return userResponse;
     }
 }
