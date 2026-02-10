@@ -44,7 +44,7 @@ public class ActivityService {
 
         ActivityResponse activityResponse = new ActivityResponse();
         
-        activityResponse.setUser(savedActivity.getUser());
+        activityResponse.setUserId(savedActivity.getUser().getId());
         activityResponse.setId(savedActivity.getId());
         activityResponse.setCreatedAt(savedActivity.getCreatedAt());
         activityResponse.setType(savedActivity.getType());

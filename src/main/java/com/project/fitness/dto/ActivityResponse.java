@@ -18,7 +18,7 @@ public class ActivityResponse {
 
     private String id;
     private ActivityType type;
-    private User user;
+    private String userId;
     private Map<String ,Object> additionalMatrics;
     private Integer duration;
     private Integer caloriesBruned;
