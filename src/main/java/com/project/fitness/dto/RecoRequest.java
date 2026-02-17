@@ -11,8 +11,8 @@ import java.util.List;
 @NoArgsConstructor
 public class RecoRequest {
 
-    private String user_id;
-    private String activity_id;
+    private String userId;
+    private String activityId;
     private List<String> improvements;
     private List<String> suggestions;
     private List<String> safety;
