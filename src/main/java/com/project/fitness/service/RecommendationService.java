@@ -48,4 +48,10 @@ public class RecommendationService {
 
      return recommendationList;
     }
+
+    public List<Recommendation> getRecoByActivity(String activityId) {
+        List<Recommendation> recommendationList = recommendationRepository.findByActivityId(activityId);
+
+        return recommendationList;
+    }
 }

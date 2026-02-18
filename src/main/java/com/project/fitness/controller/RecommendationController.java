@@ -36,4 +36,13 @@ public class RecommendationController {
         return new ResponseEntity<>(recommendation,HttpStatus.OK);
     }
 
+    @GetMapping("/activityReco/{activityId}")
+    public ResponseEntity<List<Recommendation>> getRecoByActivity(
+            @PathVariable("activityId") String activityId
+    ){
+        List<Recommendation> recommendationList = recommendationService.getRecoByActivity(activityId);
+
+        return new ResponseEntity<>(recommendationList , HttpStatus.OK);
+    }
+
 }
