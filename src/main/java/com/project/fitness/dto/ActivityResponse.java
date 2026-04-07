@@ -1,12 +1,9 @@
 package com.project.fitness.dto;
 
 import com.project.fitness.model.ActivityType;
-import com.project.fitness.model.User;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
-import org.hibernate.annotations.CreationTimestamp;
-import org.hibernate.annotations.UpdateTimestamp;
 
 import java.time.LocalDateTime;
 import java.util.Map;
